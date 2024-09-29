@@ -48,22 +48,24 @@ const Home = () => {
           {/* web dev */}
           <div className="z-50 flex h-full flex-col justify-between items-start">
             <div className="flex flex-col items-start">
-              <h3 className="text-2xl">Adnan Adam</h3>
-              <div className="text-3xl font-semibold py-3 font-titleFont text-blue uppercase">
-                <span>frontend developer</span> <br />
-                <span className="text-[crimson]">+</span>
-                <span className="text-2xl">designer </span>
-                <span className="text-[crimson]">+</span>
-                <span className="text-2xl">code-kage</span>
+              <div className="flex flex-col gap-3">
+                <h3 className="text-6xl font-semibold">Adnan Adam</h3>
+                <div className="text-2xl font-semibold text-blue uppercase">
+                  <span>frontend developer</span> <br />
+                  <span className="text-[crimson]">+</span>
+                  <span>designer </span>
+                  <span className="text-[crimson]">+</span>
+                  <span>code-kage</span>
+                </div>
+                <p>
+                  I create exceptional user friendly experiences <br />
+                  and exceptional designs. Explore and get a sense <br /> of my
+                  technical capabilities and design aesthetics.
+                </p>
               </div>
-              <p className="py-4">
-                I create exceptional user friendly experiences <br />
-                and exceptional designs. Explore and get a sense <br /> of my
-                technical capabilities and design aesthetics.
-              </p>
 
               <motion.div
-                className="flex items-center"
+                className="flex items-center mt-3"
                 variants={buttonVariants}
                 whileTap="tap"
               >

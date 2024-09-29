@@ -46,7 +46,7 @@ const Navbar = () => {
 
         <div className=" flex justify-end items-center">
           <nav className="flex justify-center items-center gap-3">
-            <ul className="flex *:px-4 justify-center">
+            <ul className="flex *:mx-4 justify-center">
               {NavLinks.map((link) => {
                 return (
                   <motion.div
