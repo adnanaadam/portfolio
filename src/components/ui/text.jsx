@@ -33,7 +33,7 @@ const Textbox = ({ title, description }) => {
     <div className="text-start overflow-y-auto">
       {currentTitle && (
         <h2
-          className={`text-2xl font-bold text-blue transition-all ${
+          className={`text-lg font-bold text-blue transition-all ${
             transitioning ? "opacity-0 duration-0 -translate-x-4" : "opacity-100 duration-500 translate-x-0"
           }`}
         >
@@ -42,7 +42,7 @@ const Textbox = ({ title, description }) => {
       )}
       {currentDescription && (
         <p
-          className={`py-2 text-[1.1rem] transition-all ${
+          className={`py-2 text-sm transition-all ${
             transitioning ? "opacity-0 -translate-x-4 duration-0" : "opacity-100 translate-x-0 duration-500"
           }`}
         >

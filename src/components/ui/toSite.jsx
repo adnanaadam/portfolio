@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { useEffect, useState } from "react";
-import { FaArrowRight } from "react-icons/fa6";
+import { ArrowRight } from "lucide-react";
 
 const ToSite = ({ siteName, hrefUrl, githubName, githubUrl }) => {
   const [currentHref, setCurrentHref] = useState(hrefUrl);
@@ -23,7 +23,7 @@ const ToSite = ({ siteName, hrefUrl, githubName, githubUrl }) => {
   return (
     <>
       <div
-        className={`flex flex-col items-start justify-between gap-4 py-2 font-semibold transition-all cursor-pointer ${
+        className={`flex flex-col items-start justify-between gap-4 py-2 transition-all cursor-pointer ${
           transitioning
             ? "opacity-0 -translate-x-4 duration-0"
             : "opacity-100 translate-x-0 duration-500"
@@ -35,7 +35,7 @@ const ToSite = ({ siteName, hrefUrl, githubName, githubUrl }) => {
           onClick={() => alert("site still in progress")}
         >
           <span className="group-hover:text-blue">{siteName}</span>
-          <FaArrowRight className="inline group-hover:text-blue group-hover:translate-x-2" />
+          <ArrowRight className="inline group-hover:text-blue group-hover:translate-x-2" />
         </Link>
 
         <Link
@@ -44,7 +44,7 @@ const ToSite = ({ siteName, hrefUrl, githubName, githubUrl }) => {
           onClick={() => alert("site still in progress")}
         >
           <span className="group-hover:text-blue">{githubName}</span>
-          <FaArrowRight className="inline group-hover:text-blue group-hover:translate-x-2" />
+          <ArrowRight className="inline group-hover:text-blue group-hover:translate-x-2" />
         </Link>
       </div>
     </>

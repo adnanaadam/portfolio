@@ -1,4 +1,4 @@
-import PageContent from "../components/projectsPageContent";
+import PageContent from "../components/ui/projectsPageContent";
 import { DesignProjectsItems } from "../db";
 
 const DesignProjects = () => {
