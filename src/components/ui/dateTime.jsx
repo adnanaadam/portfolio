@@ -17,12 +17,12 @@ const DateTime = () => {
   return (
     <>
       <div>
-        <div className="relative w-fit">
+        <div className="relative w-fit font-kode">
           <span className="h-3 w-3 bg-blue absolute top-0 -right-3 rounded-full"></span>
           <span className="h-3 w-3 bg-blue absolute top-0 -right-3 rounded-full animate-ping"></span>
-          <h2 className="text-xl text-blue font-kode">Available</h2>
+          <h2 className="text-xl text-blue">Available</h2>
         </div>
-        <div className="text-sm mt-2">
+        <div className="text-sm mt-2 font-kode">
           <p>{date.toDateString()}</p>
           <p>{date.toLocaleTimeString()}</p>
         </div>
