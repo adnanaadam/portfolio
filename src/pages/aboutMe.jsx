@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import myImage from '/man.png';
+import myImage from '/man.webp';
 import {
   FaGithub,
   FaInstagram,
