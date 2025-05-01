@@ -126,16 +126,24 @@ const Home = () => {
               Adnan Adam.
             </h3>
             <div className='bg-gradient-to-r from-gray-300 from-10% to-gray-500 to-60% bg-clip-text text-xl font-semibold text-transparent uppercase sm:text-2xl'>
-              <span>frontend developer</span> <br />
+              <span>frontend Enigineer</span> <br />
               <span className='text-[crimson]'>+</span>
               <span>designer </span>
               <span className='text-[crimson]'>+</span>
               <span>code-kage</span>
             </div>
-            <p className='text-gray-300 w-full text-sm md:w-[70%]'>
-              I create exceptional user-friendly experiences and exceptional
-              designs. Explore and get a sense of my technical capabilities and
-              design aesthetics.
+            <p className='w-full text-sm text-gray-300 md:w-[70%]'>
+              I craft intuitive,{' '}
+              <span className='text-blue'>user-friendly </span>experiences and{' '}
+              <span className='text-blue'>striking designs </span>
+              that leave a lasting impression. Explore my work to discover the
+              depth of my{' '}
+              <span className='text-blue'>
+                technical expertise, creative instincts, and passion{' '}
+              </span>
+              for building{' '}
+              <span className='text-blue'>digital experiences </span> that{' '}
+              <span className='text-blue'>truly connect</span>.
             </p>
           </div>
 
