@@ -11,58 +11,60 @@ import {
 
 // Social links
 const socials = [
-  {
-    Name: 'GitHub',
-    id: '1',
-    hrefUrl: 'https://github.com/adnanaadam',
-    icon: FaGithub,
-    style: 'hover:text-gray-800',
-    nameStyle: 'text-gray-800',
-  },
-  {
-    Name: 'Discord',
-    id: '2',
-    hrefUrl: 'https://github.com/adnanaadam',
-    icon: FaDiscord,
-    style: 'hover:text-blue-500',
-    nameStyle: 'text-blue-500',
-  },
-  {
-    Name: 'LinkedIn',
-    id: '3',
-    hrefUrl: 'https://www.linkedin.com/in/adam-adnan-35657b251',
-    icon: FaLinkedinIn,
-    style: 'hover:text-[#004182]',
-    nameStyle: 'text-[#004182]',
-  },
-  {
-    Name: 'Instagram',
-    id: '4',
-    hrefUrl: 'https://www.instagram.com/addy_sharawi',
-    icon: FaInstagram,
-    style: 'hover:text-[#F56040]',
-    nameStyle: 'text-[#F56040]',
-  },
-  {
-    Name: 'X',
-    id: '5',
-    hrefUrl: 'https://x.com/addy_sharawi',
-    icon: FaXTwitter,
-    style: 'hover:text-gray-900',
-    nameStyle: 'text-gray-900',
-  },
-];
+    {
+      Name: 'GitHub',
+      id: '1',
+      hrefUrl: 'https://github.com/adnanaadam',
+      icon: FaGithub,
+      style: 'hover:text-gray-800',
+      nameStyle: 'text-gray-800',
+    },
+    {
+      Name: 'Discord',
+      id: '2',
+      hrefUrl: 'https://github.com/adnanaadam',
+      icon: FaDiscord,
+      style: 'hover:text-blue-500',
+      nameStyle: 'text-blue-500',
+    },
+    {
+      Name: 'LinkedIn',
+      id: '3',
+      hrefUrl: 'https://www.linkedin.com/in/adam-adnan-35657b251',
+      icon: FaLinkedinIn,
+      style: 'hover:text-[#004182]',
+      nameStyle: 'text-[#004182]',
+    },
+    {
+      Name: 'Instagram',
+      id: '4',
+      hrefUrl: 'https://www.instagram.com/addy_sharawi',
+      icon: FaInstagram,
+      style: 'hover:text-[#F56040]',
+      nameStyle: 'text-[#F56040]',
+    },
+    {
+      Name: 'X',
+      id: '5',
+      hrefUrl: 'https://x.com/addy_sharawi',
+      icon: FaXTwitter,
+      style: 'hover:text-gray-900',
+      nameStyle: 'text-gray-900',
+    },
+  ];
 
 const TeckStack = [
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'React',
-  'Tailwind CSS',
-  'NodeJS',
-  'MongoDB',
-  'ExpressJS',
+  'HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS', 'NodeJS', 'MongoDB', 'ExpressJS',
 ];
+
+// Variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { when: 'beforeChildren', staggerChildren: 0.2 },
+  },
+};
 
 const textVariants = {
   hidden: { x: -50, opacity: 0 },
@@ -70,6 +72,15 @@ const textVariants = {
     x: 0,
     opacity: 1,
     transition: { type: 'spring', stiffness: 100, damping: 20 },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { type: 'spring', stiffness: 120, damping: 18 },
   },
 };
 
@@ -81,31 +92,25 @@ const buttonVariants = {
 
 const AboutMe = () => {
   return (
-    <div className='flex md:h-screen w-full flex-col items-start justify-between px-4 pt-28 pb-4 text-white md:px-16'>
+    <motion.div
+      className='flex md:h-screen w-full flex-col items-start justify-between px-4 pt-28 pb-4 text-white md:px-16'
+      variants={containerVariants}
+      initial='hidden'
+      animate='visible'
+    >
       <div className='flex flex-col items-center gap-12 md:flex-row'>
         {/* Image Wrapper */}
         <div className='relative flex-shrink-0'>
-          {/* Background Layer */}
           <motion.div
             initial={{ rotate: 0 }}
             animate={{ rotate: [-2, 2, -2] }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
             className='border-blue absolute -top-2 -left-2 h-80 w-72 rounded-2xl border-2 bg-[#112240]'
-          ></motion.div>
-
-          {/* Foreground Image */}
+          />
           <motion.div
             initial={{ rotate: 0 }}
             animate={{ rotate: [0, 2, -2, 0] }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
+            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             className='border-blue relative z-10 rounded-2xl border-4 p-1'
           >
             <img
@@ -117,7 +122,7 @@ const AboutMe = () => {
         </div>
 
         {/* Text & Tech Stack */}
-        <div className='max-w-2xl'>
+        <motion.div className='max-w-2xl' variants={textVariants}>
           <h1 className='text-blue mb-4 text-2xl font-bold'>About Me</h1>
           <p className='mb-4 leading-relaxed text-gray-400'>
             Hello! I’m Adnan, a frontend developer passionate about crafting
@@ -131,17 +136,21 @@ const AboutMe = () => {
           </p>
 
           {/* Tech Stack */}
-          <div>
+          <motion.div variants={containerVariants}>
             <h2 className='text-blue mb-4 text-xl font-semibold'>Tech Stack</h2>
             <div className='flex flex-wrap gap-4 text-sm text-gray-300'>
               {TeckStack.map((item, index) => (
-                <span key={index} className='font-kode rounded-lg bg-[#112240] px-4 py-2'>
+                <motion.span
+                  key={index}
+                  className='font-kode rounded-lg bg-[#112240] px-4 py-2'
+                  variants={itemVariants}
+                >
                   {item}
-                </span>
+                </motion.span>
               ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Social links and copyright */}
@@ -149,12 +158,7 @@ const AboutMe = () => {
         className='z-20 mt-8 flex w-full flex-col items-center justify-between gap-4 text-end sm:mt-0 sm:flex-row md:items-end md:gap-0'
         variants={textVariants}
       >
-        {/* Social links */}
-        <motion.nav
-          aria-label='socials'
-          className='flex gap-3'
-          variants={textVariants}
-        >
+        <motion.nav aria-label='socials' className='flex gap-3'>
           {socials.map((social) => (
             <motion.button
               key={social.id}
@@ -186,7 +190,7 @@ const AboutMe = () => {
           <span>created by Adnan | copyright © 2025</span>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
