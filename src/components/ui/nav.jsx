@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Menu, X } from 'lucide-react';
+import { Download, Menu, X } from 'lucide-react';
 
 // Animation variants
 const headerVariants = {
@@ -30,9 +30,10 @@ const buttonVariants = {
 
 // Navigation links
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'Projects', path: '/webprojects' },
-  { name: 'About', path: '/about' },
+  { name: 'About', path: '/aboutme' },
+  { name: 'Eperience', path: '/experience' },
+  { name: 'Works', path: '/webprojects' },
+  { name: 'Contact', path: 'mailto:addy@example.com', external: true },
 ];
 
 // Active link style
@@ -47,7 +48,7 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className='bg-darkBlue fixed top-0 z-50 flex w-full items-center justify-between px-4 py-5 uppercase sm:px-8 md:px-16'
+      className='bg-darkBlue fixed top-0 z-50 flex w-full items-center justify-between px-4 py-5 uppercase shadow-2xl sm:px-8 md:px-16'
       variants={headerVariants}
       initial='hidden'
       animate='visible'
@@ -67,42 +68,53 @@ const Navbar = () => {
           <div className='flex justify-center text-sm *:mx-4'>
             {navLinks.map((link, index) => (
               <motion.div key={index} variants={buttonVariants} whileTap='tap'>
-                <NavLink
-                  to={link.path}
-                  className={({ isActive }) =>
-                    isActive
-                      ? activeLink
-                      : 'hover:text-blue/50 transition-all duration-500'
-                  }
-                  aria-current={({ isActive }) =>
-                    isActive ? 'page' : undefined
-                  }
-                >
-                  <span className='text-blue mr-1'>0{index + 1}.</span>
-                  <span> {link.name}</span>
-                </NavLink>
+                {link.external ? (
+                  <a
+                    href={link.path}
+                    className='hover:text-blue/50 transition-all duration-500'
+                  >
+                    <span className='text-blue mr-1'>0{index + 1}.</span>
+                    <span>{link.name}</span>
+                  </a>
+                ) : (
+                  <NavLink
+                    to={link.path}
+                    className={({ isActive }) =>
+                      isActive
+                        ? activeLink
+                        : 'hover:text-blue/50 transition-all duration-500'
+                    }
+                    aria-current={({ isActive }) =>
+                      isActive ? 'page' : undefined
+                    }
+                  >
+                    <span className='text-blue mr-1'>0{index + 1}.</span>
+                    <span>{link.name}</span>
+                  </NavLink>
+                )}
               </motion.div>
             ))}
           </div>
 
           <motion.div variants={buttonVariants} whileTap='tap'>
-            <Link
-              to='/contact'
+            <a
+              href='/Adams-Adinan-Resume.pdf'
+              download
               className='text-blue flex cursor-pointer items-center justify-center'
             >
               <div className='border-blue group relative inline-flex items-center justify-start overflow-hidden rounded-md border py-2 pr-12 pl-4 font-semibold shadow transition-all duration-150 ease-in-out hover:pr-6 hover:pl-10'>
                 <span className='bg-blue absolute bottom-0 left-0 h-1 w-full transition-all duration-150 ease-in-out group-hover:h-full'></span>
                 <span className='absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12'>
-                  <ArrowRight className='size-5' />
+                  <Download className='size-4' />
                 </span>
                 <span className='absolute left-0 -translate-x-12 pl-2.5 duration-200 ease-out group-hover:translate-x-0'>
-                  <ArrowRight className='text-darkBlue size-5' />
+                  <Download className='text-darkBlue size-4' />
                 </span>
                 <span className='group-hover:text-darkBlue relative w-full text-left text-sm transition-colors duration-200 ease-in-out'>
-                  Get in touch
+                  Resume
                 </span>
               </div>
-            </Link>
+            </a>
           </motion.div>
         </nav>
       </div>
@@ -161,21 +173,30 @@ const Navbar = () => {
                     variants={buttonVariants}
                     whileTap='tap'
                   >
-                    <NavLink
-                      to={link.path}
-                      className={({ isActive }) =>
-                        isActive
-                          ? activeLink
-                          : 'hover:text-blue/50 transition-all duration-500'
-                      }
-                      aria-current={({ isActive }) =>
-                        isActive ? 'page' : undefined
-                      }
-                      onClick={toggleMobileMenu}
-                    >
-                      <span className='text-blue mr-1'>0{index + 1}.</span>
-                      <span> {link.name}</span>
-                    </NavLink>
+                    {link.external ? (
+                      <a
+                        href={link.path}
+                        className='hover:text-blue/50 transition-all duration-500'
+                      >
+                        <span className='text-blue mr-1'>0{index + 1}.</span>
+                        <span>{link.name}</span>
+                      </a>
+                    ) : (
+                      <NavLink
+                        to={link.path}
+                        className={({ isActive }) =>
+                          isActive
+                            ? activeLink
+                            : 'hover:text-blue/50 transition-all duration-500'
+                        }
+                        aria-current={({ isActive }) =>
+                          isActive ? 'page' : undefined
+                        }
+                      >
+                        <span className='text-blue mr-1'>0{index + 1}.</span>
+                        <span>{link.name}</span>
+                      </NavLink>
+                    )}
                   </motion.div>
                 ))}
               </nav>
@@ -185,24 +206,25 @@ const Navbar = () => {
                 whileTap='tap'
                 className='mt-6'
               >
-                <Link
-                  to='/contact'
+                <a
                   className='text-blue flex cursor-pointer items-center justify-center'
                   onClick={toggleMobileMenu}
+                  href='/Adams-Adinan-Reusme.pdf'
+                  download
                 >
                   <div className='border-blue group relative inline-flex items-center justify-start overflow-hidden rounded-md border py-2 pr-12 pl-4 font-semibold shadow transition-all duration-150 ease-in-out hover:pr-6 hover:pl-10'>
                     <span className='bg-blue absolute bottom-0 left-0 h-1 w-full transition-all duration-150 ease-in-out group-hover:h-full'></span>
                     <span className='absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12'>
-                      <ArrowRight className='size-5' />
+                      <Download className='size-4' />
                     </span>
                     <span className='absolute left-0 -translate-x-12 pl-2.5 duration-200 ease-out group-hover:translate-x-0'>
-                      <ArrowRight className='text-darkBlue size-5' />
+                      <Download className='text-darkBlue size-4' />
                     </span>
                     <span className='group-hover:text-darkBlue relative w-full text-left text-sm transition-colors duration-200 ease-in-out'>
-                      Get in touch
+                      Resume
                     </span>
                   </div>
-                </Link>
+                </a>
               </motion.div>
             </motion.div>
           </>

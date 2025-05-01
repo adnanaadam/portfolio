@@ -21,7 +21,7 @@ const Showcase = ({ images }) => {
   return (
     <>
       <div
-        className={`border-4 border-blue h-[7em] w-[30%] transition-all ${
+        className={`border-4 border-blue h-[7em] w-[50%] md:w-[30%] transition-all ${
           transitioning ? "opacity-0 -translate-x-4 duration-0" : "opacity-100 translate-x-0 duration-500"
         }`}
       >
