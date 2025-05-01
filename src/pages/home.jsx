@@ -132,7 +132,7 @@ const Home = () => {
               <span className='text-[crimson]'>+</span>
               <span>code-kage</span>
             </div>
-            <p className='text-grey w-full text-sm md:w-[70%]'>
+            <p className='text-gray-300 w-full text-sm md:w-[70%]'>
               I create exceptional user-friendly experiences and exceptional
               designs. Explore and get a sense of my technical capabilities and
               design aesthetics.
@@ -204,7 +204,7 @@ const Home = () => {
           ))}
         </motion.nav>
         <div className='font-kode text-[0.6rem] opacity-30'>
-          <span>created by Adnan | copyright © 2024</span>
+          <span>created by Adnan | copyright © 2025</span>
         </div>
       </motion.div>
 

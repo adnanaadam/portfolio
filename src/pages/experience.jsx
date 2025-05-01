@@ -1,4 +1,4 @@
-const About = () => {
+const Experience = () => {
   return (
     <>
       <div className="w-screen h-screen min-h-screen" role="main">
@@ -15,4 +15,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Experience;

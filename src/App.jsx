@@ -2,9 +2,8 @@ import { Routes, Route } from "react-router";
 import SharedLayout from "./layout";
 import Home from "./pages/home";
 import Webprojects from "./pages/webprojects";
-import DesignProjects from "./pages/designProjects";
-import About from "./pages/about";
-import Contact from "./pages/contact";
+import Experience from "./pages/experience";
+import AboutMe from "./pages/aboutMe";
 
 function App() {
   return (
@@ -12,10 +11,9 @@ function App() {
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<Home />} />
+          <Route path="/aboutme" element={<AboutMe />} />
           <Route path="/webprojects" element={<Webprojects />} />
-          <Route path="/designs" element={<DesignProjects />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/Contact" element={<Contact />} />
+          <Route path="/experience" element={<Experience />} />
         </Route>
       </Routes>
     </>

@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import Showcase from './imgSlider';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring  } from 'framer-motion';
 import AboutProjects from './aboutProject';
 
 // animation variants
 const slideVariants = {
   animation: {
     x: [0, -3, 0],
-    y: [4, -4, 0],
+    y: [2, -4, 0],
     transition: {
       x: {
         repeat: Infinity,
@@ -26,9 +26,10 @@ const slideVariants = {
 };
 
 const PageContent = ({ pageContent }) => {
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollRef = useRef(null);
-  const slideRefs = useRef([]); // refs for each slide
+  const slideRefs = useRef([]);
 
   const { scrollYProgress } = useScroll({ container: scrollRef });
   const scaleY = useSpring(scrollYProgress, {
@@ -37,18 +38,28 @@ const PageContent = ({ pageContent }) => {
     restDelta: 0.001,
   });
 
-  // handle smooth scrolling when clicking on a slide
+  // Smooth scroll to center a slide, and immediately set active index
   const handleSlideClick = (index) => {
-    const selectedSlide = slideRefs.current[index];
-    if (selectedSlide) {
-      selectedSlide.scrollIntoView({
+    const container = scrollRef.current;
+    const slide = slideRefs.current[index];
+
+    if (container && slide) {
+      const containerHeight = container.clientHeight;
+      const slideTop = slide.offsetTop;
+      const slideHeight = slide.clientHeight;
+
+      const scrollTo = slideTop - (containerHeight / 2) + (slideHeight / 2);
+
+      container.scrollTo({
+        top: scrollTo,
         behavior: 'smooth',
-        block: 'center',
       });
+
+      setCurrentIndex(index);
     }
   };
 
-  // use intersectionObserver to detect when a slide comes into view
+  // Observe which slide is in view while scrolling
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -63,140 +74,132 @@ const PageContent = ({ pageContent }) => {
       },
       {
         root: scrollRef.current,
-        threshold: 0.5, // trigger when 50% of the slide is visible
+        threshold: 0.5,
+        rootMargin: '0px',
       }
     );
 
-    // observe each slide
     slideRefs.current.forEach((slide) => {
       if (slide) observer.observe(slide);
     });
 
-    // cleanup observer
     return () => {
       slideRefs.current.forEach((slide) => {
         if (slide) observer.unobserve(slide);
       });
     };
-  }, [currentIndex]);
+  }, []);
 
-  // scroll to the bottom on initial render, then scroll up to the first image
+  // Scroll to the first slide when component mounts
   useEffect(() => {
-    if (scrollRef.current) {
-      // scroll to the bottom immediately
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-
-      // smoothly scroll to the first image after a short delay
+    if (scrollRef.current && slideRefs.current[0]) {
       setTimeout(() => {
-        if (slideRefs.current[0]) {
-          slideRefs.current[0].scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-          });
-        }
-      }, 500); // adjust the delay as needed
+        handleSlideClick(0);
+      }, 50);
     }
   }, []);
 
-  const getSlideStyle = (index) =>
-    index === currentIndex ? 'scale-120 transition-all duration-500' : '';
+  // Get style for each slide based on its active state
+  const getSlideStyle = (index) => {
+    const baseStyle = 'transition-all duration-500 ease-in-out';
+    return index === currentIndex
+      ? `${baseStyle} scale-110 z-10`
+      : `${baseStyle} scale-90 opacity-80`;
+  };
 
   const currentPageContent = pageContent[currentIndex];
 
   return (
-    <div className='h-screen w-screen'>
+    <div className='h-screen w-screen overflow-hidden'>
       {/* scroll progress bar */}
       <motion.div
-        viewport={{ root: scrollRef }}
         style={{ scaleY }}
-        className={`bg-blue fixed top-0 right-0 bottom-0 w-2 origin-top rounded`}
+        className='bg-blue fixed top-0 right-0 bottom-0 w-2 origin-top rounded'
       />
 
-      <div className='flex h-full w-full items-center justify-center'>
-        <div className='flex h-full w-[45%] flex-col justify-between py-8 pt-32 pl-16'>
+      <div className='flex h-full w-full items-center justify-between'>
+        {/* Left side panel */}
+        <motion.div
+          className='flex h-full w-[40%] flex-col justify-between py-8 pt-32 pl-16'
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           <AboutProjects />
           <Showcase images={currentPageContent.images} />
-        </div>
+        </motion.div>
 
-        {/* slides */}
+        {/* Slides container */}
         <div className='flex h-full w-[55%] items-center justify-between gap-8 pt-16 pr-16'>
           <div
-            className='slide-cont no-scrollbar flex h-full w-full -skew-x-[10deg] snap-y flex-col items-center gap-4 overflow-x-hidden overflow-y-scroll px-4'
+            ref={scrollRef}
+            className='no-scrollbar flex h-full w-full -skew-x-[10deg] snap-y snap-mandatory flex-col items-center gap-4 overflow-x-hidden overflow-y-scroll px-4'
             aria-live='polite'
             aria-atomic='true'
-            ref={scrollRef}
           >
-            <div className='h-[70%] w-[90%] cursor-default text-transparent'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quam
-              at autem dolorum eligendi praesentium, deleniti similique illo
-              molestiae vero eaque. Nostrum sapiente aliquam aut, impedit at
-              autem dolorum eligendi praesentium, deleniti similique illo
-              molestiae vero eaque. Nostrum sapiente aliquam aut, impedit
-            </div>
+            {/* Top spacer */}
+            <div className='h-[30vh] w-full flex-shrink-0' />
+
+            {/* Slides */}
             {pageContent.map((image, index) => (
-              <motion.div
+              <div
                 key={index}
                 data-index={index}
                 ref={(el) => (slideRefs.current[index] = el)}
                 onClick={() => handleSlideClick(index)}
-                className={`slide relative h-[60%] w-[80%] cursor-pointer slide-${index} ${getSlideStyle(
-                  index
-                )}`}
+                className={`relative slide h-[58vh] w-[80%] flex-shrink-0 cursor-pointer ${getSlideStyle(index)}`}
               >
-                {/* animation div and concave and convex shapes */}
                 <motion.div
-                  className={`absolute top-0 right-0 bottom-0 -left-5 m-auto h-[105%] w-[110%] ${index === currentIndex ? 'bg-transparent' : 'bg-darkBlue/60'}`}
+                  className={`absolute overflow-hidden top-0 right-0 bottom-0 -left-5 m-auto h-[105%] w-[110%] ${
+                    index === currentIndex ? 'bg-transparent' : 'bg-darkBlue/60'
+                  }`}
                   variants={slideVariants}
                   animate='animation'
                 >
                   <div className='bg-darkBlue absolute inset-y-0 right-0 w-9'></div>
                   <div className='bg-darkBlue absolute inset-y-0 left-0 w-8'></div>
-                  {/* convex and concave shapes */}
-                  <div className='top bg-darkBlue absolute top-0 -right-7 h-[20%] w-full'></div>
+                  <div className='top bg-darkBlue absolute top-1 -right-7 h-[20%] w-full'></div>
                   <div className='bottom bg-darkBlue absolute -right-7 bottom-0 h-[15%] w-full'></div>
                 </motion.div>
 
-                {/* Image */}
                 <img
                   src={image.url}
                   alt={`Slide ${index}`}
                   loading='lazy'
-                  className='h-full w-full object-cover'
+                  className='h-full w-full object-cover object-center'
                 />
-              </motion.div>
+              </div>
             ))}
 
-            <div className='h-[70%] w-[90%] cursor-default text-transparent'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, quam
-              at autem dolorum eligendi praesentium, deleniti similique illo
-              molestiae vero eaque. Nostrum sapiente aliquam aut, impedit
-            </div>
+            {/* Bottom spacer */}
+            <div className='h-[30vh] w-full flex-shrink-0' />
           </div>
 
-          {/* side dots with menu */}
+          {/* Side dots & menu */}
           <div className='group relative flex cursor-pointer flex-col'>
             {pageContent.map((_, index) => (
               <span
                 key={index}
-                className={`mx-1 my-2 rounded-full ${
+                className={`mx-1 my-2 rounded-full transition-all duration-300 ${
                   currentIndex === index
-                    ? 'bg-blue h-6 w-3 origin-center transition-all duration-700'
+                    ? 'bg-blue h-6 w-3'
                     : 'border-blue h-3 w-3 border-2'
                 }`}
                 onClick={() => handleSlideClick(index)}
                 aria-label={`Go to slide ${index + 1}`}
               ></span>
             ))}
-            <div
-              className={`bg-darkBlue absolute top-0 right-0 flex w-[10rem] origin-right scale-0 flex-col rounded-lg p-2 text-sm shadow-md transition-all duration-300 ease-in-out group-hover:scale-100`}
-            >
-              {pageContent.map((pageContent, index) => (
+
+            <div className='bg-darkBlue absolute top-0 right-0 flex w-[10rem] origin-right scale-0 flex-col rounded-lg p-2 text-sm shadow-md transition-all duration-300 ease-in-out group-hover:scale-100'>
+              {pageContent.map((page, index) => (
                 <p
                   key={index}
                   onClick={() => handleSlideClick(index)}
-                  className='hover:text-blue py-1'
+                  className={`py-1 ${
+                    currentIndex === index ? 'text-blue' : 'hover:text-blue'
+                  }`}
                 >
-                  {pageContent.title}
+                  {page.title}
                 </p>
               ))}
             </div>
