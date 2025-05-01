@@ -6,55 +6,62 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaXTwitter,
-  FaDiscord
+  FaDiscord,
 } from 'react-icons/fa6';
 
 // Social links
 const socials = [
-    {
-      Name: 'GitHub',
-      id: '1',
-      hrefUrl: 'https://github.com/adnanaadam',
-      icon: FaGithub,
-      style: 'hover:text-gray-800',
-      nameStyle: 'text-gray-800',
-    },
-    {
-      Name: 'Discord',
-      id: '2',
-      hrefUrl: 'https://github.com/adnanaadam',
-      icon: FaDiscord,
-      style: 'hover:text-blue-500',
-      nameStyle: 'text-blue-500',
-    },
-    {
-      Name: 'LinkedIn',
-      id: '3',
-      hrefUrl: 'https://www.linkedin.com/in/adam-adnan-35657b251',
-      icon: FaLinkedinIn,
-      style: 'hover:text-[#004182]',
-      nameStyle: 'text-[#004182]',
-    },
-    {
-      Name: 'Instagram',
-      id: '4',
-      hrefUrl: 'https://www.instagram.com/addy_sharawi',
-      icon: FaInstagram,
-      style: 'hover:text-[#F56040]',
-      nameStyle: 'text-[#F56040]',
-    },
-    {
-      Name: 'X',
-      id: '5',
-      hrefUrl: 'https://x.com/addy_sharawi',
-      icon: FaXTwitter,
-      style: 'hover:text-gray-900',
-      nameStyle: 'text-gray-900',
-    },
-  ];
+  {
+    Name: 'GitHub',
+    id: '1',
+    hrefUrl: 'https://github.com/adnanaadam',
+    icon: FaGithub,
+    style: 'hover:text-gray-800',
+    nameStyle: 'text-gray-800',
+  },
+  {
+    Name: 'Discord',
+    id: '2',
+    hrefUrl: 'https://github.com/adnanaadam',
+    icon: FaDiscord,
+    style: 'hover:text-blue-500',
+    nameStyle: 'text-blue-500',
+  },
+  {
+    Name: 'LinkedIn',
+    id: '3',
+    hrefUrl: 'https://www.linkedin.com/in/adam-adnan-35657b251',
+    icon: FaLinkedinIn,
+    style: 'hover:text-[#004182]',
+    nameStyle: 'text-[#004182]',
+  },
+  {
+    Name: 'Instagram',
+    id: '4',
+    hrefUrl: 'https://www.instagram.com/addy_sharawi',
+    icon: FaInstagram,
+    style: 'hover:text-[#F56040]',
+    nameStyle: 'text-[#F56040]',
+  },
+  {
+    Name: 'X',
+    id: '5',
+    hrefUrl: 'https://x.com/addy_sharawi',
+    icon: FaXTwitter,
+    style: 'hover:text-gray-900',
+    nameStyle: 'text-gray-900',
+  },
+];
 
 const TeckStack = [
-  'HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS', 'NodeJS', 'MongoDB', 'ExpressJS',
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',
+  'Tailwind CSS',
+  'NodeJS',
+  'MongoDB',
+  'ExpressJS',
 ];
 
 // Variants
@@ -93,7 +100,7 @@ const buttonVariants = {
 const AboutMe = () => {
   return (
     <motion.div
-      className='flex md:h-screen w-full flex-col items-start justify-between px-4 pt-28 pb-4 text-white md:px-16'
+      className='flex w-full flex-col items-start justify-between px-4 pt-28 pb-4 text-white md:h-screen md:px-16'
       variants={containerVariants}
       initial='hidden'
       animate='visible'
