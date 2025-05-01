@@ -32,7 +32,7 @@ const AboutProjects = ({ project }) => {
         <h1 className='text-2xl font-bold'>{project.title}</h1>
       </div>
 
-      <p className='text-sm text-gray-300'>{project.description}</p>
+      <p className='text-gray-300'>{project.description}</p>
 
       {/* technologies */}
       <div className='font-kode text-grey flex gap-4 text-sm'>

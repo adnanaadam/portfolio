@@ -7,6 +7,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaXTwitter,
+  FaDiscord
 } from 'react-icons/fa6';
 
 // Social links
@@ -16,12 +17,20 @@ const socials = [
     id: '1',
     hrefUrl: 'https://github.com/adnanaadam',
     icon: FaGithub,
-    style: 'hover:text-grey',
-    nameStyle: 'text-grey',
+    style: 'hover:text-gray-800',
+    nameStyle: 'text-gray-800',
+  },
+  {
+    Name: 'Discord',
+    id: '2',
+    hrefUrl: 'https://github.com/adnanaadam',
+    icon: FaDiscord,
+    style: 'hover:text-blue-500',
+    nameStyle: 'text-blue-500',
   },
   {
     Name: 'LinkedIn',
-    id: '2',
+    id: '3',
     hrefUrl: 'https://www.linkedin.com/in/adam-adnan-35657b251',
     icon: FaLinkedinIn,
     style: 'hover:text-[#004182]',
@@ -29,7 +38,7 @@ const socials = [
   },
   {
     Name: 'Instagram',
-    id: '3',
+    id: '4',
     hrefUrl: 'https://www.instagram.com/addy_sharawi',
     icon: FaInstagram,
     style: 'hover:text-[#F56040]',
@@ -37,11 +46,11 @@ const socials = [
   },
   {
     Name: 'X',
-    id: '4',
+    id: '5',
     hrefUrl: 'https://x.com/addy_sharawi',
     icon: FaXTwitter,
-    style: 'hover:text-grey',
-    nameStyle: 'text-grey',
+    style: 'hover:text-gray-900',
+    nameStyle: 'text-gray-900',
   },
 ];
 
