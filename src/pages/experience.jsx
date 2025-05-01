@@ -1,6 +1,23 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const childVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 const mailVariants = {
   hidden: { y: 100, opacity: 0 },
   visible: {
@@ -50,6 +67,8 @@ const Experience = () => {
       <motion.div
         className='text-grey group fixed bottom-0 hidden items-center justify-center gap-2 text-xs [writing-mode:vertical-lr] sm:absolute sm:left-4 md:flex lg:ml-12'
         variants={mailVariants}
+        initial='hidden'
+        animate='visible'
       >
         <a
           href='mailto:adnanmish30@gmail.com'
@@ -60,15 +79,27 @@ const Experience = () => {
         <div className='bg-grey h-[10rem] w-[2px]'></div>
       </motion.div>
 
-      <div className='md:ml-28'>
-        <h2 className='text-blue mb-10 flex items-center gap-2 text-2xl font-semibold'>
+      <motion.div
+        className='md:ml-28'
+        variants={containerVariants}
+        initial='hidden'
+        animate='visible'
+      >
+        {/* Header */}
+        <motion.h2
+          className='text-blue mb-10 flex items-center gap-2 text-2xl font-semibold'
+          variants={childVariants}
+        >
           Where I’ve Worked
-          <span className='ml-4 h-px w-1/5 bg-gray-700 hidden md:block'></span>
-        </h2>
+          <span className='ml-4 hidden h-px w-1/5 bg-gray-700 md:block'></span>
+        </motion.h2>
 
         <div className='flex flex-col gap-6 md:flex-row'>
           {/* Left Tabs */}
-          <div className='no-scrollbar flex overflow-x-scroll border-b border-teal-500 md:w-48 md:flex-col md:border-b-0 md:border-l'>
+          <motion.div
+            className='no-scrollbar flex overflow-x-scroll border-b border-teal-500 md:w-48 md:flex-col md:border-b-0 md:border-l'
+            variants={childVariants}
+          >
             {experiences.map((exp, index) => (
               <button
                 key={index}
@@ -82,7 +113,7 @@ const Experience = () => {
                 {exp.company}
               </button>
             ))}
-          </div>
+          </motion.div>
 
           {/* Right Content */}
           <motion.div
@@ -92,29 +123,45 @@ const Experience = () => {
             transition={{ duration: 0.3 }}
             className='flex-1'
           >
-            <h3 className='mb-1 text-xl font-medium text-gray-200'>
+            <motion.h3
+              className='mb-1 text-xl font-medium text-gray-200'
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
               {experiences[activeTab].role}{' '}
               <span className='text-blue'>
                 @ {experiences[activeTab].company}
               </span>
-            </h3>
-            <p className='font-kode mb-4 text-sm text-gray-400'>
+            </motion.h3>
+            <motion.p
+              className='font-kode mb-4 text-sm text-gray-400'
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
               {experiences[activeTab].duration}
-            </p>
-            <ul className='space-y-3 md:w-[80%]'>
+            </motion.p>
+            <motion.ul
+              className='space-y-3 md:w-[80%]'
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
               {experiences[activeTab].responsibilities.map((item, i) => (
                 <li key={i} className='flex items-start gap-3 text-gray-400'>
                   <span className='text-blue'>▸</span> {item}
                 </li>
               ))}
-            </ul>
+            </motion.ul>
           </motion.div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className='font-kode absolute right-8 bottom-4 z-20 text-[0.6rem] opacity-30'>
+      <div className='font-kode absolute bottom-4 z-20 w-full text-center text-[0.6rem] opacity-30 md:right-8 md:w-auto'>
         <span>created by Adnan | copyright © 2025</span>
       </div>
+
       {/* Bottom gradient */}
       <div className='from-darkBlue to-blue/0 absolute bottom-0 z-10 hidden h-1/5 w-full bg-gradient-to-t md:flex'></div>
     </div>

@@ -7,7 +7,7 @@ import {
   FaInstagram,
   FaLinkedinIn,
   FaXTwitter,
-  FaDiscord
+  FaDiscord,
 } from 'react-icons/fa6';
 
 // Social links
