@@ -5,10 +5,12 @@ const AboutProjects = ({ project }) => {
     <div className='flex flex-col gap-6'>
       <div className='flex flex-col gap-1'>
         <h5 className='text-blue font-kode text-sm'>Featured Project</h5>
-        <h1 className='text-2xl font-bold'>{project.title}</h1>
+        <h1 className='text-xl font-semibold'>{project.title}</h1>
       </div>
 
-      <p className='text-gray-300'>{project.description}</p>
+      <p className='text-sm text-gray-300 md:text-base'>
+        {project.description}
+      </p>
 
       {/* technologies */}
       <div className='font-kode text-grey flex gap-4 text-sm'>

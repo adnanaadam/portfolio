@@ -101,7 +101,7 @@ const buttonVariants = {
 const Home = () => {
   return (
     <motion.main
-      className='from-blue/50 via-darkBlue/90 to-darkBlue relative flex w-screen flex-col items-center justify-between gap-8 overflow-hidden bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] px-4 pt-32 pb-12 sm:px-8 md:h-screen md:px-16 lg:pl-36'
+      className='from-blue/50 via-darkBlue/90 to-darkBlue relative flex w-screen flex-col items-center justify-between gap-8 overflow-hidden bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] px-4 md:pt-32 pt-20 pb-12 sm:px-8 md:h-screen md:px-16 lg:pl-36'
       variants={containerVariants}
       initial='hidden'
       animate='visible'

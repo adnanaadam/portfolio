@@ -105,7 +105,7 @@ const AboutMe = () => {
       initial='hidden'
       animate='visible'
     >
-      <div className='flex flex-col items-center gap-12 md:flex-row'>
+      <div className='flex flex-col mb-8 md:mb-0 items-center gap-12 md:flex-row'>
         {/* Image Wrapper */}
         <div className='relative flex-shrink-0'>
           <motion.div
@@ -130,13 +130,16 @@ const AboutMe = () => {
 
         {/* Text & Tech Stack */}
         <motion.div className='max-w-2xl' variants={textVariants}>
-          <h1 className='text-blue mb-4 text-2xl font-bold'>About Me</h1>
-          <p className='mb-4 leading-relaxed text-gray-400'>
+          <h1 className='text-blue mb-4 flex items-center text-lg font-semibold md:text-xl'>
+            About Me
+            <span className='ml-4 h-px w-2/5 bg-gray-700 md:inline-block'></span>
+          </h1>
+          <p className='mb-4 text-sm leading-relaxed text-gray-400 md:text-base'>
             Hello! I’m Adnan, a frontend developer passionate about crafting
             intuitive, user-friendly digital experiences. I love transforming
             ideas into beautiful, responsive, and performant web apps.
           </p>
-          <p className='mb-8 leading-relaxed text-gray-400'>
+          <p className='mb-8 text-sm leading-relaxed text-gray-400 md:text-base'>
             When I'm not coding, you’ll find me exploring UI/UX trends, working
             on personal projects, or reading about design systems and new web
             technologies.
@@ -144,7 +147,10 @@ const AboutMe = () => {
 
           {/* Tech Stack */}
           <motion.div variants={containerVariants}>
-            <h2 className='text-blue mb-4 text-xl font-semibold'>Tech Stack</h2>
+            <h2 className='text-blue flex items-center mb-4 text-lg font-semibold md:text-xl'>
+              Tech Stack
+              <span className='ml-4 h-px w-2/5 bg-gray-700 md:inline-block'></span>
+            </h2>
             <div className='flex flex-wrap gap-4 text-sm text-gray-300'>
               {TeckStack.map((item, index) => (
                 <motion.span

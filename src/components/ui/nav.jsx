@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className='bg-darkBlue fixed top-0 z-50 flex w-full items-center justify-between px-4 py-5 uppercase shadow-2xl sm:px-8 md:px-16'
+      className='bg-darkBlue fixed top-0 z-50 flex w-full items-center justify-between px-4 py-5 uppercase shadow-2xl shadow-blue/20 sm:px-8 md:px-16'
       variants={headerVariants}
       initial='hidden'
       animate='visible'

@@ -87,11 +87,11 @@ const Experience = () => {
       >
         {/* Header */}
         <motion.h2
-          className='text-blue mb-10 flex items-center gap-2 text-2xl font-semibold'
+          className='text-blue mb-10 flex items-center gap-2 text-lg md:text-xl font-semibold'
           variants={childVariants}
         >
           Where I’ve Worked
-          <span className='ml-4 hidden h-px w-1/5 bg-gray-700 md:block'></span>
+          <span className='ml-4 h-px w-1/5 bg-gray-700 md:inline-block'></span>
         </motion.h2>
 
         <div className='flex flex-col gap-6 md:flex-row'>
@@ -104,7 +104,7 @@ const Experience = () => {
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`cursor-pointer border-b-2 px-4 py-2 text-left md:border-b-0 md:border-l-2 ${
+                className={`cursor-pointer text-sm border-b-2 px-4 py-2 text-left md:border-b-0 md:border-l-2 ${
                   activeTab === index
                     ? 'border-blue text-blue bg-[#112240]'
                     : 'border-transparent text-gray-400 hover:bg-[#112240]'
@@ -124,7 +124,7 @@ const Experience = () => {
             className='flex-1'
           >
             <motion.h3
-              className='mb-1 text-xl font-medium text-gray-200'
+              className='mb-1 text-lg md:text-xl font-medium text-gray-200'
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -149,7 +149,7 @@ const Experience = () => {
               transition={{ delay: 0.4 }}
             >
               {experiences[activeTab].responsibilities.map((item, i) => (
-                <li key={i} className='flex items-start gap-3 text-gray-400'>
+                <li key={i} className='flex items-start text-sm md:text-base gap-3 text-gray-400'>
                   <span className='text-blue'>▸</span> {item}
                 </li>
               ))}
