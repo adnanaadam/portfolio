@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className='bg-darkBlue fixed top-0 z-50 flex w-full items-center justify-between px-4 py-5 uppercase shadow-2xl shadow-blue/20 sm:px-8 md:px-16'
+      className='bg-darkBlue shadow-blue/20 fixed top-0 z-50 flex w-full items-center justify-between px-4 py-5 uppercase shadow-2xl sm:px-8 md:px-16'
       variants={headerVariants}
       initial='hidden'
       animate='visible'
@@ -99,7 +99,8 @@ const Navbar = () => {
           <motion.div variants={buttonVariants} whileTap='tap'>
             <a
               href='/Adams-Adinan-Resume.pdf'
-              download
+              target='_blank'
+              rel='noopener noreferrer'
               className='text-blue flex cursor-pointer items-center justify-center'
             >
               <div className='border-blue group relative inline-flex items-center justify-start overflow-hidden rounded-md border py-2 pr-12 pl-4 font-semibold shadow transition-all duration-150 ease-in-out hover:pr-6 hover:pl-10'>
@@ -192,6 +193,7 @@ const Navbar = () => {
                         aria-current={({ isActive }) =>
                           isActive ? 'page' : undefined
                         }
+                        onClick={toggleMobileMenu}
                       >
                         <span className='text-blue mr-1'>0{index + 1}.</span>
                         <span>{link.name}</span>
@@ -207,10 +209,11 @@ const Navbar = () => {
                 className='mt-6'
               >
                 <a
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='text-blue flex cursor-pointer items-center justify-center'
                   onClick={toggleMobileMenu}
                   href='/Adams-Adinan-Reusme.pdf'
-                  download
                 >
                   <div className='border-blue group relative inline-flex items-center justify-start overflow-hidden rounded-md border py-2 pr-12 pl-4 font-semibold shadow transition-all duration-150 ease-in-out hover:pr-6 hover:pl-10'>
                     <span className='bg-blue absolute bottom-0 left-0 h-1 w-full transition-all duration-150 ease-in-out group-hover:h-full'></span>
