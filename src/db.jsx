@@ -86,7 +86,7 @@ export const WebProjectsItems = [
     title: 'Skyline-Anime',
     description:
       'Skyline Anime is an anime-focused web app where users can discover popular and top-rated anime, get random anime quotes, and enjoy features like a "Waifu/Husbando of the Day." Built with React, Tailwind CSS, and the Jikan API, it delivers a smooth, interactive anime experience for fans.',
-    tech: [ 'React', 'Tailwind', 'JikanAPI'],
+    tech: [ 'React', 'Tailwind', 'Tanstack', 'JikanAPI'],
     images: [
       { url: 'imgs/web/project5/showcase1.png' },
       { url: 'imgs/web/project5/showcase2.png' },
