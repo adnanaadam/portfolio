@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Experiences } from '../db';
 
 const containerVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -26,37 +27,6 @@ const mailVariants = {
     transition: { type: 'spring', stiffness: 100, damping: 20, delay: 0.5 },
   },
 };
-
-const experiences = [
-  {
-    company: 'Upstatement',
-    role: 'Engineer',
-    duration: 'May 2018 — Present',
-    responsibilities: [
-      'Write modern, performant, maintainable code for a diverse array of client and internal projects.',
-      'Work with a variety of different languages, platforms, frameworks, and content management systems such as JavaScript, TypeScript, Gatsby, React, Craft, WordPress, Prismic, and Netlify.',
-      'Communicate with multi-disciplinary teams of engineers, designers, producers, and clients on a daily basis.',
-    ],
-  },
-  {
-    company: 'Scout',
-    role: 'Frontend Developer',
-    duration: 'Jan 2017 — Apr 2018',
-    responsibilities: [
-      'Collaborated with designers to implement responsive, pixel-perfect UIs.',
-      'Optimized web experiences for speed and accessibility.',
-    ],
-  },
-  {
-    company: 'Apple',
-    role: 'UI Engineer Intern',
-    duration: 'May 2016 — Dec 2016',
-    responsibilities: [
-      'Developed internal tools for automating UI testing.',
-      'Worked closely with senior engineers to modernize legacy components.',
-    ],
-  },
-];
 
 const Experience = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -87,11 +57,11 @@ const Experience = () => {
       >
         {/* Header */}
         <motion.h2
-          className='text-blue mb-10 flex items-center gap-2 text-2xl font-semibold'
+          className='text-blue mb-10 flex items-center gap-2 text-lg md:text-xl font-semibold'
           variants={childVariants}
         >
           Where I’ve Worked
-          <span className='ml-4 hidden h-px w-1/5 bg-gray-700 md:block'></span>
+          <span className='ml-4 h-px w-1/5 bg-gray-700 md:inline-block'></span>
         </motion.h2>
 
         <div className='flex flex-col gap-6 md:flex-row'>
@@ -100,11 +70,11 @@ const Experience = () => {
             className='no-scrollbar flex overflow-x-scroll border-b border-teal-500 md:w-48 md:flex-col md:border-b-0 md:border-l'
             variants={childVariants}
           >
-            {experiences.map((exp, index) => (
+            {Experiences.map((exp, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`cursor-pointer border-b-2 px-4 py-2 text-left md:border-b-0 md:border-l-2 ${
+                className={`cursor-pointer text-sm border-b-2 px-4 py-2 text-left md:border-b-0 md:border-l-2 ${
                   activeTab === index
                     ? 'border-blue text-blue bg-[#112240]'
                     : 'border-transparent text-gray-400 hover:bg-[#112240]'
@@ -124,14 +94,14 @@ const Experience = () => {
             className='flex-1'
           >
             <motion.h3
-              className='mb-1 text-xl font-medium text-gray-200'
+              className='mb-1 text-lg md:text-xl font-medium text-gray-200'
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              {experiences[activeTab].role}{' '}
+              {Experiences[activeTab].role}{' '}
               <span className='text-blue'>
-                @ {experiences[activeTab].company}
+                @ {Experiences[activeTab].company}
               </span>
             </motion.h3>
             <motion.p
@@ -140,7 +110,7 @@ const Experience = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              {experiences[activeTab].duration}
+              {Experiences[activeTab].duration}
             </motion.p>
             <motion.ul
               className='space-y-3 md:w-[80%]'
@@ -148,8 +118,8 @@ const Experience = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              {experiences[activeTab].responsibilities.map((item, i) => (
-                <li key={i} className='flex items-start gap-3 text-gray-400'>
+              {Experiences[activeTab].responsibilities.map((item, i) => (
+                <li key={i} className='flex items-start text-sm md:text-base gap-3 text-gray-400'>
                   <span className='text-blue'>▸</span> {item}
                 </li>
               ))}

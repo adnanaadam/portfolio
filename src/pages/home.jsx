@@ -101,7 +101,7 @@ const buttonVariants = {
 const Home = () => {
   return (
     <motion.main
-      className='from-blue/50 via-darkBlue/90 to-darkBlue relative flex w-screen flex-col items-center justify-between gap-8 overflow-hidden bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] px-4 pt-32 pb-12 sm:px-8 md:h-screen md:px-16 lg:pl-36'
+      className='from-blue/50 via-darkBlue/90 to-darkBlue relative flex w-screen flex-col items-center justify-between gap-8 overflow-hidden bg-[radial-gradient(circle_at_bottom,_var(--tw-gradient-stops))] px-4 pt-20 pb-12 sm:px-8 md:h-screen md:px-16 md:pt-32 lg:pl-36'
       variants={containerVariants}
       initial='hidden'
       animate='visible'
@@ -132,7 +132,7 @@ const Home = () => {
           <div className='flex flex-col gap-3 sm:gap-6'>
             <p className='text-blue font-kode text-sm'>Hi, my name is,</p>
             <h3 className='text-4xl font-semibold sm:text-6xl md:text-7xl'>
-              Adnan Adam.
+              Adinan Adams.
             </h3>
             <div className='bg-gradient-to-r from-gray-300 from-10% to-gray-500 to-60% bg-clip-text text-xl font-semibold text-transparent uppercase sm:text-2xl'>
               <span>frontend Enigineer</span> <br />
@@ -142,17 +142,14 @@ const Home = () => {
               <span>code-kage</span>
             </div>
             <p className='w-full text-sm text-gray-300 md:w-[70%]'>
-              I craft intuitive,{' '}
-              <span className='text-blue'>user-friendly </span>experiences and{' '}
-              <span className='text-blue'>striking designs </span>
-              that leave a lasting impression. Explore my work to discover the
-              depth of my{' '}
-              <span className='text-blue'>
-                technical expertise, creative instincts, and passion{' '}
-              </span>
-              for building{' '}
-              <span className='text-blue'>digital experiences </span> that{' '}
-              <span className='text-blue'>truly connect</span>.
+              I build <span className='text-blue'>scalable web solutions</span>{' '}
+              with a focus on{' '}
+              <span className='text-blue'>clean architecture</span>,{' '}
+              <span className='text-blue'>technical excellence</span>, and{' '}
+              <span className='text-blue'>intuitive design</span>. I combine{' '}
+              <span className='text-blue'>problem-solving</span> with thoughtful{' '}
+              <span className='text-blue'>user experiences</span> to deliver
+              products that truly connect.
             </p>
           </div>
 

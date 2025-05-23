@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import myImage from '/man.webp';
+import myImage from '/me.jpg';
 import {
   FaGithub,
   FaInstagram,
@@ -54,14 +54,17 @@ const socials = [
 ];
 
 const TeckStack = [
-  'HTML',
-  'CSS',
   'JavaScript',
   'React',
+  'TypeScript',
+  'HTML',
+  'CSS',
   'Tailwind CSS',
+  'NextJS',
   'NodeJS',
   'MongoDB',
   'ExpressJS',
+  'Firebase',
 ];
 
 // Variants
@@ -105,7 +108,7 @@ const AboutMe = () => {
       initial='hidden'
       animate='visible'
     >
-      <div className='flex flex-col items-center gap-12 md:flex-row'>
+      <div className='mb-8 flex flex-col items-center gap-12 md:mb-0 md:flex-row'>
         {/* Image Wrapper */}
         <div className='relative flex-shrink-0'>
           <motion.div
@@ -130,26 +133,45 @@ const AboutMe = () => {
 
         {/* Text & Tech Stack */}
         <motion.div className='max-w-2xl' variants={textVariants}>
-          <h1 className='text-blue mb-4 text-2xl font-bold'>About Me</h1>
-          <p className='mb-4 leading-relaxed text-gray-400'>
-            Hello! I’m Adnan, a frontend developer passionate about crafting
-            intuitive, user-friendly digital experiences. I love transforming
-            ideas into beautiful, responsive, and performant web apps.
+          <h1 className='text-blue mb-4 flex items-center text-lg font-semibold md:text-xl'>
+            About Me
+            <span className='ml-4 h-px w-2/5 bg-gray-700 md:inline-block'></span>
+          </h1>
+          <p className='mb-4 text-sm leading-relaxed text-gray-400 md:text-base'>
+            Hello! I’m <span className='text-blue'>Adnan</span>, a{' '}
+            <span className='text-blue'>frontend developer</span> with{' '}
+            <span className='text-blue'>3+ years of experience</span> building{' '}
+            <span className='text-blue'>fast</span>,{' '}
+            <span className='text-blue'>scalable</span>, and{' '}
+            <span className='text-blue'>maintainable</span> web applications.
+            I’m passionate about{' '}
+            <span className='text-blue'>clean architecture</span>,{' '}
+            <span className='text-blue'>performance optimization</span>, and
+            crafting{' '}
+            <span className='text-blue'>seamless user experiences</span>.
           </p>
-          <p className='mb-8 leading-relaxed text-gray-400'>
-            When I'm not coding, you’ll find me exploring UI/UX trends, working
-            on personal projects, or reading about design systems and new web
-            technologies.
+          <p className='mb-8 text-sm leading-relaxed text-gray-400 md:text-base'>
+            Outside of coding, I’m{' '}
+            <span className='text-blue'>always learning</span> — whether it’s
+            exploring <span className='text-blue'>modern UI/UX trends</span>,
+            working on <span className='text-blue'>side projects</span>, or
+            staying up to date with the latest in{' '}
+            <span className='text-blue'>web development</span>,{' '}
+            <span className='text-blue'>frontend tooling</span>, and the
+            ever-evolving <span className='text-blue'>tech landscape</span>.
           </p>
 
           {/* Tech Stack */}
           <motion.div variants={containerVariants}>
-            <h2 className='text-blue mb-4 text-xl font-semibold'>Tech Stack</h2>
-            <div className='flex flex-wrap gap-4 text-sm text-gray-300'>
+            <h2 className='text-blue mb-4 flex items-center text-lg font-semibold md:text-xl'>
+              Tech Stack
+              <span className='ml-4 h-px w-2/5 bg-gray-700 md:inline-block'></span>
+            </h2>
+            <div className='flex flex-wrap gap-4 text-gray-300'>
               {TeckStack.map((item, index) => (
                 <motion.span
                   key={index}
-                  className='font-kode rounded-lg bg-[#112240] px-4 py-2'
+                  className='font-kode rounded-lg text-xs bg-[#112240] px-4 py-2'
                   variants={itemVariants}
                 >
                   {item}

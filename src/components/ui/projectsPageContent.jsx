@@ -160,7 +160,8 @@ const PageContent = ({ pageContent }) => {
             aria-live='polite'
             aria-atomic='true'
           >
-            <div className='h-[20vh] w-full flex-shrink-0 md:h-[30vh]' />
+            {/* Spacer */}
+            <div className='h-[20vh] w-[40%] md:w-[80%] flex-shrink-0 md:h-[30vh]' />
 
             {pageContent.map((image, index) => (
               <div
@@ -168,7 +169,7 @@ const PageContent = ({ pageContent }) => {
                 data-index={index}
                 ref={(el) => (slideRefs.current[index] = el)}
                 onClick={() => handleSlideClick(index)}
-                className={`slide relative h-[30vh] w-[50%] flex-shrink-0 cursor-pointer md:h-[58vh] md:w-[80%] ${getSlideStyle(index)}`}
+                className={`slide relative h-[30vh] w-[60%] flex-shrink-0 snap-center cursor-pointer md:h-[58vh] md:w-[80%] ${getSlideStyle(index)}`}
               >
                 <motion.div
                   className={`absolute top-0 right-0 bottom-0 -left-5 m-auto hidden h-[105%] w-[110%] overflow-hidden md:block ${
@@ -192,7 +193,8 @@ const PageContent = ({ pageContent }) => {
               </div>
             ))}
 
-            <div className='h-[20vh] w-full flex-shrink-0 md:h-[30vh]' />
+            {/* Spacer */}
+            <div className='h-[20vh] w-[40%] md:w-[80%] flex-shrink-0 md:h-[30vh]' />
           </div>
 
           {/* Side dots & menu */}
