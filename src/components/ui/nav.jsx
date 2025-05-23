@@ -98,7 +98,7 @@ const Navbar = () => {
 
           <motion.div variants={buttonVariants} whileTap='tap'>
             <a
-              href='/Adams-Adinan-Resume.pdf'
+              href='/Adams-Resume.pdf'
               target='_blank'
               rel='noopener noreferrer'
               className='text-blue flex cursor-pointer items-center justify-center'
@@ -213,7 +213,7 @@ const Navbar = () => {
                   rel='noopener noreferrer'
                   className='text-blue flex cursor-pointer items-center justify-center'
                   onClick={toggleMobileMenu}
-                  href='/Adams-Adinan-Reusme.pdf'
+                  href='/Adams-Reusme.pdf'
                 >
                   <div className='border-blue group relative inline-flex items-center justify-start overflow-hidden rounded-md border py-2 pr-12 pl-4 font-semibold shadow transition-all duration-150 ease-in-out hover:pr-6 hover:pl-10'>
                     <span className='bg-blue absolute bottom-0 left-0 h-1 w-full transition-all duration-150 ease-in-out group-hover:h-full'></span>
