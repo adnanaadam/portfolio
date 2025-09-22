@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import Showcase from './imgSlider';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { useScroll, useSpring } from 'framer-motion';
 import AboutProjects from './aboutProject';
+import { motion } from 'motion/react';
 
 // animation variants
 const slideVariants = {
@@ -25,14 +26,14 @@ const slideVariants = {
   },
 };
 
-const slideContVariants = {
-  hidden: { y: 100, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { type: 'spring', stiffness: 100, damping: 20, delay: 0.5 },
-  },
-};
+// const slideContVariants = {
+//   hidden: { y: 100, opacity: 0 },
+//   visible: {
+//     y: 0,
+//     opacity: 1,
+//     transition: { type: 'spring', stiffness: 100, damping: 20, delay: 0.5 },
+//   },
+// };
 
 const PageContent = ({ pageContent }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -97,6 +98,7 @@ const PageContent = ({ pageContent }) => {
     });
 
     return () => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       slideRefs.current.forEach((slide) => {
         if (slide) observer.unobserve(slide);
       });
@@ -222,7 +224,7 @@ const PageContent = ({ pageContent }) => {
                   key={index}
                   onClick={() => handleSlideClick(index)}
                   className={`py-1 ${
-                    currentIndex === index ? 'text-blue' : 'hover:text-blue'
+                    currentIndex === index ? 'text-blue' : 'text-gray-300'
                   }`}
                 >
                   {page.title}

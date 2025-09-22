@@ -5,7 +5,7 @@ const Showcase = ({ images }) => {
   return (
     <>
       <div
-        className='border-4 relative border-blue h-[7em] w-1/2 md:w-[40%]'
+        className='border-4 relative border-blue h-[9em] w-1/2 md:w-[50%]'
       >
         <SimpleImageSlider
           width='100%'

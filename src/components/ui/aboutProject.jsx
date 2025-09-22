@@ -20,7 +20,7 @@ const AboutProjects = ({ project }) => {
       </div>
 
       {/* links */}
-      <div className='text-grey *:hover:text-blue flex gap-4 *:transition *:duration-300 *:ease-in-out'>
+      <div className='text-blue/40 *:hover:text-blue *:hover:scale-105 *:hover:-translate-y-1 flex gap-4 *:transition *:duration-300 *:ease-in-out'>
         {project.github && (
           <a href={project.github}>
             <span>
@@ -29,7 +29,7 @@ const AboutProjects = ({ project }) => {
           </a>
         )}
         {project.demo && (
-          <a href={project.demo}>
+          <a href={project.demo} target='_blank' rel='noopener noreferrer'>
             <span>
               <ExternalLink />
             </span>

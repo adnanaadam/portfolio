@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import DateTime from '@/components/ui/dateTime';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import {
   FaGithub,
@@ -31,7 +31,7 @@ const socials = [
   {
     Name: 'LinkedIn',
     id: '3',
-    hrefUrl: 'https://www.linkedin.com/in/adam-adnan-35657b251',
+    hrefUrl: 'https://www.linkedin.com/in/adams-adinan-68ba49380',
     icon: FaLinkedinIn,
     style: 'hover:text-[#004182]',
     nameStyle: 'text-[#004182]',
@@ -39,7 +39,7 @@ const socials = [
   {
     Name: 'Instagram',
     id: '4',
-    hrefUrl: 'https://www.instagram.com/addy_sharawi',
+    hrefUrl: 'https://www.instagram.com/addy_devx',
     icon: FaInstagram,
     style: 'hover:text-[#F56040]',
     nameStyle: 'text-[#F56040]',
@@ -47,7 +47,7 @@ const socials = [
   {
     Name: 'X',
     id: '5',
-    hrefUrl: 'https://x.com/addy_sharawi',
+    hrefUrl: 'https://x.com/addy_devx',
     icon: FaXTwitter,
     style: 'hover:text-gray-900',
     nameStyle: 'text-gray-900',
@@ -126,7 +126,7 @@ const Home = () => {
         variants={containerVariants}
       >
         <motion.div
-          className='flex w-full flex-col items-start gap-6 lg:w-[70%]'
+          className='flex w-full flex-col items-start gap-6 md:pl-10 lg:w-[70%]'
           variants={textVariants}
         >
           <div className='flex flex-col gap-3 sm:gap-6'>
@@ -135,21 +135,21 @@ const Home = () => {
               Adinan Adams.
             </h3>
             <div className='bg-gradient-to-r from-gray-300 from-10% to-gray-500 to-60% bg-clip-text text-xl font-semibold text-transparent uppercase sm:text-2xl'>
-              <span>frontend Enigineer</span> <br />
+              <span>frontend enigineer</span> <br />
               <span className='text-[crimson]'>+</span>
-              <span>designer </span>
-              <span className='text-[crimson]'>+</span>
-              <span>code-kage</span>
+              <span>full-stack capable</span>
             </div>
             <p className='w-full text-sm text-gray-300 md:w-[70%]'>
-              I build <span className='text-blue'>scalable web solutions</span>{' '}
-              with a focus on{' '}
-              <span className='text-blue'>clean architecture</span>,{' '}
-              <span className='text-blue'>technical excellence</span>, and{' '}
-              <span className='text-blue'>intuitive design</span>. I combine{' '}
-              <span className='text-blue'>problem-solving</span> with thoughtful{' '}
-              <span className='text-blue'>user experiences</span> to deliver
-              products that truly connect.
+              I craft{' '}
+              <span className='text-blue'>scalable web applications</span>
+              {' '}with an emphasis on{' '}
+              <span className='text-blue'>clean architecture</span>,
+              <span className='text-blue'>{' '}technical precision</span>, and
+              <span className='text-blue'>{' '}seamless user experiences</span>. My
+              work blends <span className='text-blue'>problem-solving</span>{' '}
+              with
+              <span className='text-blue'>{' '}practical innovation</span> to deliver
+              products that make an impact.
             </p>
           </div>
 
@@ -181,7 +181,7 @@ const Home = () => {
 
       {/* Social links and copyright */}
       <motion.div
-        className='z-20 mt-8 flex w-full flex-col items-center justify-between gap-4 text-end sm:mt-0 sm:flex-row md:items-end md:gap-0'
+        className='z-20 mt-8 flex w-full flex-col items-center justify-between gap-4 text-end sm:mt-0 sm:flex-row md:items-end md:gap-0 md:pl-10'
         variants={textVariants}
       >
         {/* Social links */}
@@ -218,7 +218,7 @@ const Home = () => {
           ))}
         </motion.nav>
         <div className='font-kode text-[0.6rem] opacity-30'>
-          <span>created by Adnan | copyright © 2025</span>
+          <span>created by Adinan | copyright © 2025</span>
         </div>
       </motion.div>
 
