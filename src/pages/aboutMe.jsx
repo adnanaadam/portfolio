@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import myImage from '/me.jpg';
+
+import { motion } from 'motion/react';
+import myImage from '/me_2.jpg';
 import {
   FaGithub,
   FaInstagram,
@@ -30,7 +30,7 @@ const socials = [
   {
     Name: 'LinkedIn',
     id: '3',
-    hrefUrl: 'https://www.linkedin.com/in/adam-adnan-35657b251',
+    hrefUrl: 'https://www.linkedin.com/in/adams-adinan-68ba49380/',
     icon: FaLinkedinIn,
     style: 'hover:text-[#004182]',
     nameStyle: 'text-[#004182]',
@@ -38,7 +38,7 @@ const socials = [
   {
     Name: 'Instagram',
     id: '4',
-    hrefUrl: 'https://www.instagram.com/addy_sharawi',
+    hrefUrl: 'https://www.instagram.com/addy_devx',
     icon: FaInstagram,
     style: 'hover:text-[#F56040]',
     nameStyle: 'text-[#F56040]',
@@ -46,7 +46,7 @@ const socials = [
   {
     Name: 'X',
     id: '5',
-    hrefUrl: 'https://x.com/addy_sharawi',
+    hrefUrl: 'https://x.com/addy_devx',
     icon: FaXTwitter,
     style: 'hover:text-gray-900',
     nameStyle: 'text-gray-900',
@@ -60,11 +60,18 @@ const TeckStack = [
   'HTML',
   'CSS',
   'Tailwind CSS',
+  'Zustand',
+  'Redux',
   'NextJS',
   'NodeJS',
-  'MongoDB',
   'ExpressJS',
+  'Java',
+  'Tanstack',
+  'PostgreSQL',
   'Firebase',
+  'Docker',
+  'Git',
+  'GitHub',
 ];
 
 // Variants
@@ -140,7 +147,7 @@ const AboutMe = () => {
           <p className='mb-4 text-sm leading-relaxed text-gray-400 md:text-base'>
             Hello! I’m <span className='text-blue'>Adnan</span>, a{' '}
             <span className='text-blue'>frontend developer</span> with{' '}
-            <span className='text-blue'>3+ years of experience</span> building{' '}
+            <span className='text-blue'>4+ years of experience</span> building{' '}
             <span className='text-blue'>fast</span>,{' '}
             <span className='text-blue'>scalable</span>, and{' '}
             <span className='text-blue'>maintainable</span> web applications.
@@ -153,7 +160,6 @@ const AboutMe = () => {
           <p className='mb-8 text-sm leading-relaxed text-gray-400 md:text-base'>
             Outside of coding, I’m{' '}
             <span className='text-blue'>always learning</span> — whether it’s
-            exploring <span className='text-blue'>modern UI/UX trends</span>,
             working on <span className='text-blue'>side projects</span>, or
             staying up to date with the latest in{' '}
             <span className='text-blue'>web development</span>,{' '}

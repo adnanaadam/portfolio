@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { Download, Menu, X } from 'lucide-react';
 
 // Animation variants
@@ -31,8 +31,8 @@ const buttonVariants = {
 // Navigation links
 const navLinks = [
   { name: 'About', path: '/aboutme' },
-  { name: 'Eperience', path: '/experience' },
-  { name: 'Works', path: '/webprojects' },
+  { name: 'Experience', path: '/experience' },
+  { name: 'Projects', path: '/webprojects' },
   { name: 'Contact', path: 'mailto:addy@example.com', external: true },
 ];
 
@@ -98,7 +98,7 @@ const Navbar = () => {
 
           <motion.div variants={buttonVariants} whileTap='tap'>
             <a
-              href='/Adams-Resume.pdf'
+              href='/Adams_Web_Dev.pdf'
               target='_blank'
               rel='noopener noreferrer'
               className='text-blue flex cursor-pointer items-center justify-center'
@@ -213,7 +213,7 @@ const Navbar = () => {
                   rel='noopener noreferrer'
                   className='text-blue flex cursor-pointer items-center justify-center'
                   onClick={toggleMobileMenu}
-                  href='/Adams-Reusme.pdf'
+                  href='/Adams_Web_Dev.pdf'
                 >
                   <div className='border-blue group relative inline-flex items-center justify-start overflow-hidden rounded-md border py-2 pr-12 pl-4 font-semibold shadow transition-all duration-150 ease-in-out hover:pr-6 hover:pl-10'>
                     <span className='bg-blue absolute bottom-0 left-0 h-1 w-full transition-all duration-150 ease-in-out group-hover:h-full'></span>
